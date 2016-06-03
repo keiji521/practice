@@ -5,7 +5,7 @@
 2==load of queen move
 '''
 board=[[0 for i in range(8)] for j in range(8)]
-queen=[2,3,4]
+queen=[7,6,5,4,3]
 def backtrack(n,m=0):
 	for i in range(8):
 		pass
@@ -23,10 +23,10 @@ def queen_move():
 				for k in range(j+1,len(board)):
 					if board[i][k]==0:
 						board[i][k]=2
-				for k in range(i):
+				for k in range(min(i,len(board)-j-1)):
 					if board[i-(k+1)][j+(k+1)]==0:
 						board[i-(k+1)][j+(k+1)]=2
-				for k in range(1,len(board)-i):
+				for k in range(1,min(len(board)-i,len(board)-j)):
 					if board[i+k][j+k]==0:
 						board[i+k][j+k]=2
 					
